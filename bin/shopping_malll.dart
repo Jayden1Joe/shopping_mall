@@ -20,14 +20,18 @@ class ShoppingMall {
   }
 
   addToCart(CartItem item) {
+    // 장바구니에 이미 같은 상품이 있는지 확인
     if (cart.any((cartItem) => cartItem.product.name == item.product.name)) {
+      // 이미 있는 경우, 해당 상품의 수량을 증가시킴
       CartItem existingItem = cart.firstWhere(
         (cartItem) => cartItem.product.name == item.product.name,
       );
       existingItem.quantity += item.quantity;
     } else {
+      // 없는 경우, 새로 추가
       cart.add(item);
     }
+    // 총 가격 업데이트
     total += item.product.price * item.quantity;
   }
 
@@ -118,10 +122,13 @@ void main(List<String> arguments) {
         try {
           int? productQuantity = int.parse(stdin.readLineSync() ?? '');
           if (!shoppingMall.products.any((p) => p.name == productName)) {
+            // 상품 이름이 목록에 없는 경우
             throw Exception();
           } else if (productQuantity <= 0) {
+            // 상품 개수가 0 이하인 경우
             throw LessThanZeroException();
           } else {
+            // 리스트내 이름과 입력받은 이름이 일치하는 상품을 찾고 장바구니에 추가
             Product product = shoppingMall.products.firstWhere(
               (p) => p.name == productName,
             );
