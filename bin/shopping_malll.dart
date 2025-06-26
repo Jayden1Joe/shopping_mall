@@ -1,6 +1,12 @@
 import 'package:shopping_malll/shopping_malll.dart' as shopping_malll;
 import 'dart:io';
 
+class LessThanZeroException implements Exception {
+  String errorMessage() {
+    return '0개보다 많은 개수의 상품만 담을 수 있어요 !';
+  }
+}
+
 class ShoppingMall {
   List<Product> products = [];
   int total = 0;
@@ -71,7 +77,7 @@ void main(List<String> arguments) {
             productQuantity == null) {
           print('입력값이 올바르지 않아요 !');
         } else if (productQuantity <= 0) {
-          print('0개보다 많은 개수의 상품만 담을 수 있어요 !');
+          throw LessThanZeroException();
         } else {
           Product product = shoppingMall.products.firstWhere(
             (p) => p.name == productName,
