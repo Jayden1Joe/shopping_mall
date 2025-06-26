@@ -39,11 +39,11 @@ class ConsoleUI {
             print('종료하지 않습니다.');
           }
         case '6':
-          if (mall.total == 0) {
+          if (cart.total == 0) {
             print('이미 장바구니가 비어있습니다.');
           } else {
             cart.cart.clear();
-            mall.total = 0;
+            cart.total = 0;
             print('장바구니를 초기화합니다.');
           }
         case '7':
