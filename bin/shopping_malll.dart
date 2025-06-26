@@ -71,21 +71,24 @@ void main(List<String> arguments) {
         String? productName = stdin.readLineSync();
         print('상품 개수를 입력해주세요 !');
 
-        int? productQuantity = int.tryParse(stdin.readLineSync() ?? '');
-
-        if (!shoppingMall.products.any((p) => p.name == productName) ||
-            productQuantity == null) {
+        try {
+          int? productQuantity = int.parse(stdin.readLineSync() ?? '');
+          if (!shoppingMall.products.any((p) => p.name == productName)) {
+            print('입력값이 올바르지 않아요 !');
+          } else if (productQuantity <= 0) {
+            throw LessThanZeroException();
+          } else {
+            Product product = shoppingMall.products.firstWhere(
+              (p) => p.name == productName,
+            );
+            CartItem item = CartItem(product, productQuantity);
+            shoppingMall.addToCart(item);
+            print('장바구니에 상품이 담겼어요 !');
+          }
+        } catch (e) {
           print('입력값이 올바르지 않아요 !');
-        } else if (productQuantity <= 0) {
-          throw LessThanZeroException();
-        } else {
-          Product product = shoppingMall.products.firstWhere(
-            (p) => p.name == productName,
-          );
-          CartItem item = CartItem(product, productQuantity);
-          shoppingMall.addToCart(item);
-          print('장바구니에 상품이 담겼어요 !');
         }
+
       case '3':
         shoppingMall.showTotal();
       case '4':
