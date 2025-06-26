@@ -1,4 +1,4 @@
-import 'package:shopping_malll/utils/subjectParticle.dart';
+import 'package:shopping_mall/utils/subjectParticle.dart';
 import '../models/cart_item.dart';
 
 class ShoppingCart {

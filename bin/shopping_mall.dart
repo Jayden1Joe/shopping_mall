@@ -1,7 +1,7 @@
-import 'package:shopping_malll/models/product.dart';
-import 'package:shopping_malll/services/shopping_cart.dart';
-import 'package:shopping_malll/services/shopping_mall.dart';
-import 'package:shopping_malll/ui/console_ui.dart';
+import 'package:shopping_mall/models/product.dart';
+import 'package:shopping_mall/services/shopping_cart.dart';
+import 'package:shopping_mall/services/shopping_mall.dart';
+import 'package:shopping_mall/ui/console_ui.dart';
 
 void main() {
   Product shirt = Product('셔츠', 45000);

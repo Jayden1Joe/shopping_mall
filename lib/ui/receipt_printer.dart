@@ -1,4 +1,4 @@
-import 'package:shopping_malll/services/shopping_cart.dart';
+import 'package:shopping_mall/services/shopping_cart.dart';
 
 void printReceipt(ShoppingCart cart) {
   if (cart.total == 0) {

@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:shopping_malll/exceptions/less_than_zero_exception.dart';
-import 'package:shopping_malll/models/cart_item.dart';
-import 'package:shopping_malll/models/product.dart';
-import 'package:shopping_malll/services/shopping_cart.dart';
-import 'package:shopping_malll/services/shopping_mall.dart';
-import 'package:shopping_malll/ui/receipt_printer.dart';
+import 'package:shopping_mall/exceptions/less_than_zero_exception.dart';
+import 'package:shopping_mall/models/cart_item.dart';
+import 'package:shopping_mall/models/product.dart';
+import 'package:shopping_mall/services/shopping_cart.dart';
+import 'package:shopping_mall/services/shopping_mall.dart';
+import 'package:shopping_mall/ui/receipt_printer.dart';
 
 class ConsoleUI {
   final ShoppingMall mall;
