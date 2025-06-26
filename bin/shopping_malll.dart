@@ -128,6 +128,8 @@ void main(List<String> arguments) {
           shoppingMall.total = 0;
           print('장바구니를 초기화합니다.');
         }
+      default:
+        print('잘못된 입력입니다. 1~6의 숫자를 눌러주세요.');
     }
   }
 }
