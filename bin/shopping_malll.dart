@@ -21,7 +21,14 @@ class ShoppingMall {
   }
 
   addToCart(CartItem item) {
-    cart.add(item);
+    if (cart.any((cartItem) => cartItem.product.name == item.product.name)) {
+      CartItem existingItem = cart.firstWhere(
+        (cartItem) => cartItem.product.name == item.product.name,
+      );
+      existingItem.quantity += item.quantity;
+    } else {
+      cart.add(item);
+    }
     total += item.product.price * item.quantity;
   }
 
