@@ -29,12 +29,19 @@ class ShoppingMall {
     if (total == 0) {
       print('장바구니에 담긴 상품이 없습니다.');
     } else {
-      String productNames = cart
-          .map((item) => item.product.name)
-          .toList()
-          .join(', ');
-      print('장바구니에 $productNames가 담겨있네요. 총 $total원 입니다!');
+      List<String> names = cart.map((item) => item.product.name).toList();
+      String productNames = names.join(', ');
+      String particle = subjectParticle(names.last); // 마지막 상품 기준으로 조사 선택
+
+      print('장바구니에 $productNames$particle 담겨있네요. 총 $total원 입니다!');
     }
+  }
+
+  String subjectParticle(String word) {
+    final lastChar = word[word.length - 1];
+    final codeUnit = lastChar.codeUnitAt(0);
+    final hasFinalConsonant = (codeUnit - 0xAC00) % 28 != 0;
+    return hasFinalConsonant ? '이' : '가';
   }
 }
 
