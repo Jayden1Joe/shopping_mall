@@ -70,11 +70,10 @@ void main(List<String> arguments) {
         print('상품 이름을 입력해주세요 !');
         String? productName = stdin.readLineSync();
         print('상품 개수를 입력해주세요 !');
-
         try {
           int? productQuantity = int.parse(stdin.readLineSync() ?? '');
           if (!shoppingMall.products.any((p) => p.name == productName)) {
-            print('입력값이 올바르지 않아요 !');
+            throw Exception();
           } else if (productQuantity <= 0) {
             throw LessThanZeroException();
           } else {
@@ -88,7 +87,6 @@ void main(List<String> arguments) {
         } catch (e) {
           print('입력값이 올바르지 않아요 !');
         }
-
       case '3':
         shoppingMall.showTotal();
       case '4':
