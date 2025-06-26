@@ -53,6 +53,17 @@ void main(List<String> arguments) {
       shoppingMall.showProducts();
       break;
     case '2':
+      print('상품 이름을 입력해주세요 !');
+      String? productName = stdin.readLineSync();
+      print('상품 개수를 입력해주세요 !');
+
+      int? productQuantity = int.tryParse(stdin.readLineSync() ?? '');
+
+      if (!shoppingMall.products.any((p) => p.name == productName) ||
+          productQuantity == null) {
+        print('입력값이 올바르지 않아요 !');
+      }
+      break;
     case '3':
     case '4':
   }
