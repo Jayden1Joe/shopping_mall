@@ -62,7 +62,9 @@ void main(List<String> arguments) {
       if (!shoppingMall.products.any((p) => p.name == productName) ||
           productQuantity == null) {
         print('입력값이 올바르지 않아요 !');
-      }
+      } else if (productQuantity <= 0) {
+        print('0개보다 많은 개수의 상품만 담을 수 있어요 !');
+      } else {}
       break;
     case '3':
     case '4':
