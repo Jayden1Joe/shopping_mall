@@ -1,4 +1,5 @@
 import 'package:shopping_malll/shopping_malll.dart' as shopping_malll;
+import 'dart:io';
 
 class ShoppingMall {
   List<Product> products = [];
@@ -31,5 +32,28 @@ class Product {
 }
 
 void main(List<String> arguments) {
-  print('Hello world: ${shopping_malll.calculate()}!');
+  Product shirt = Product('셔츠', 45000);
+  Product dress = Product('원피스', 30000);
+  Product tShirt = Product('반팔티', 35000);
+  Product shorts = Product('반바지', 38000);
+  Product socks = Product('양말', 5000);
+
+  ShoppingMall shoppingMall = ShoppingMall();
+  shoppingMall.products.addAll([shirt, dress, tShirt, shorts, socks]);
+
+  print(
+    '''------------------------------------------------------------------------------------------------------
+[1] 상품 목록 보기 / [2] 장바구니에 담기 / [3] 장바구니에 담긴 상품의 총 가격 보기 / [4] 프로그램 종료
+------------------------------------------------------------------------------------------------------''',
+  );
+
+  String? input = stdin.readLineSync();
+  switch (input) {
+    case '1':
+      shoppingMall.showProducts();
+      break;
+    case '2':
+    case '3':
+    case '4':
+  }
 }
