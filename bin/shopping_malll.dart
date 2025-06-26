@@ -26,7 +26,15 @@ class ShoppingMall {
   }
 
   showTotal() {
-    print('장바구니에 $total원 어치를 담으셨네요 !');
+    if (total == 0) {
+      print('장바구니에 담긴 상품이 없습니다.');
+    } else {
+      String productNames = cart
+          .map((item) => item.product.name)
+          .toList()
+          .join(', ');
+      print('장바구니에 $productNames가 담겨있네요. 총 $total원 입니다!');
+    }
   }
 }
 
@@ -88,15 +96,6 @@ void main(List<String> arguments) {
           print('입력값이 올바르지 않아요 !');
         }
       case '3':
-        if (shoppingMall.total == 0) {
-          print('장바구니에 담긴 상품이 없습니다.');
-        } else {
-          String productNames = shoppingMall.cart
-              .map((item) => item.product.name)
-              .toList()
-              .join(', ');
-          print('장바구니에 $productNames가 담겨있네요. 총 ${shoppingMall.total}원 입니다!');
-        }
         shoppingMall.showTotal();
       case '4':
         print('정말 종료하시겠습니까?');
