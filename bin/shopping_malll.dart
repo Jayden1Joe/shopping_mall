@@ -4,7 +4,7 @@ import 'dart:io';
 class ShoppingMall {
   List<Product> products = [];
   int total = 0;
-  List<Product> cart = [];
+  List<CartItem> cart = [];
 
   ShoppingMall();
 
@@ -14,9 +14,9 @@ class ShoppingMall {
     }
   }
 
-  addToCart(Product product) {
-    cart.add(product);
-    total += product.price;
+  addToCart(CartItem item) {
+    cart.add(item);
+    total += item.product.price * item.quantity;
   }
 
   showTotal() {
@@ -29,6 +29,13 @@ class Product {
   int price;
 
   Product(this.name, this.price);
+}
+
+class CartItem {
+  Product product;
+  int quantity;
+
+  CartItem(this.product, this.quantity);
 }
 
 void main(List<String> arguments) {
