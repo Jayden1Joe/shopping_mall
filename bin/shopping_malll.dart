@@ -1,4 +1,3 @@
-import 'package:shopping_malll/shopping_malll.dart' as shopping_malll;
 import 'dart:io';
 
 class LessThanZeroException implements Exception {
