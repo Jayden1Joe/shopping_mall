@@ -66,6 +66,30 @@ class CartItem {
   CartItem(this.product, this.quantity);
 }
 
+void printReceipt(ShoppingMall shoppingMall) {
+  if (shoppingMall.total == 0) {
+    print('장바구니가 비어있습니다.');
+    return;
+  }
+
+  print('                     영수증');
+  print('----------------------------------------------');
+  print('상품명            |   단가   | 수량 |     합계');
+  print('----------------------------------------------');
+
+  for (var item in shoppingMall.cart) {
+    final name = item.product.name.padRight(15);
+    final price = item.product.price.toString().padLeft(6);
+    final quantity = item.quantity.toString().padLeft(4);
+    final sum = (item.product.price * item.quantity).toString().padLeft(6);
+    print('$name | $price원 | $quantity | $sum원');
+  }
+
+  print('----------------------------------------------');
+  print('총 합계: ${shoppingMall.total}원');
+  print('----------------------------------------------');
+}
+
 void main(List<String> arguments) {
   Product shirt = Product('셔츠', 45000);
   Product dress = Product('원피스', 30000);
@@ -128,6 +152,8 @@ void main(List<String> arguments) {
           shoppingMall.total = 0;
           print('장바구니를 초기화합니다.');
         }
+      case '7':
+        printReceipt(shoppingMall);
       default:
         print('잘못된 입력입니다. 1~6의 숫자를 눌러주세요.');
     }
