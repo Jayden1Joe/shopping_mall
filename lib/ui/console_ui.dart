@@ -75,6 +75,8 @@ class ConsoleUI {
         cart.addToCart(item);
         print('장바구니에 상품이 담겼어요 !');
       }
+    } on LessThanZeroException catch (e) {
+      print(e.errorMessage());
     } catch (e) {
       print('입력값이 올바르지 않아요 !');
     }
