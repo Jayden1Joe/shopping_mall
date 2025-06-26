@@ -60,7 +60,6 @@ void main(List<String> arguments) {
     switch (input) {
       case '1':
         shoppingMall.showProducts();
-        break;
       case '2':
         print('상품 이름을 입력해주세요 !');
         String? productName = stdin.readLineSync();
@@ -81,14 +80,11 @@ void main(List<String> arguments) {
           shoppingMall.addToCart(item);
           print('장바구니에 상품이 담겼어요 !');
         }
-        break;
       case '3':
         shoppingMall.showTotal();
-        break;
       case '4':
         print('이용해 주셔서 감사합니다 ~ 안녕히 가세요 !');
         loop = false;
-        break;
     }
   }
 }
