@@ -90,8 +90,14 @@ void main(List<String> arguments) {
       case '3':
         shoppingMall.showTotal();
       case '4':
-        print('이용해 주셔서 감사합니다 ~ 안녕히 가세요 !');
-        loop = false;
+        print('정말 종료하시겠습니까?');
+        String? exitInput = stdin.readLineSync();
+        if (exitInput == '5') {
+          print('이용해 주셔서 감사합니다 ~ 안녕히 가세요!');
+          loop = false;
+        } else {
+          print('종료하지 않습니다.');
+        }
     }
   }
 }
