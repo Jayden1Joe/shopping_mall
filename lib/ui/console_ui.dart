@@ -78,6 +78,7 @@ class ConsoleUI {
     } on LessThanZeroException catch (e) {
       print(e.errorMessage());
     } catch (e) {
+      // parse 에러 또는 상품 이름이 목록에 없는 경우
       print('입력값이 올바르지 않아요 !');
     }
   }
